@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "Fries": { price: 3.75, quantity: 0 },
         "Soda": { price: 1.89, quantity: 0 }
     };
-    const TAX_RATE = 0.0625; // Massachusetts meals tax rate
 
     function showMoney(value) {
         let rounded = Math.round(value * 100) / 100;
@@ -20,17 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return valueStr;
     }
 
-    Object.keys(items).forEach(item => {
+    for (let item in items) {
         items[item].quantity = parseInt(prompt(`How many ${item.toLowerCase()} do you want?`), 10) || 0;
-    });
+    }
 
-    let subtotal = Object.keys(items).reduce((acc, item) => acc + (items[item].quantity * items[item].price), 0);
-    let discount = (subtotal >= 25) ? subtotal * 0.1 : 0;
+    let subtotal = 0;
+    for (let item in items) {
+        subtotal += items[item].quantity * items[item].price;
+    }
+    let discount = subtotal >= 25 ? subtotal * 0.1 : 0;
     subtotal -= discount;
-    let tax = subtotal * TAX_RATE;
+    let taxRate = 0.0625;
+    let tax = subtotal * taxRate;
     let total = subtotal + tax;
 
-    let orderDetailsHTML = Object.keys(items).map(item => `<p>${item}s Ordered: ${items[item].quantity} ($${showMoney(items[item].quantity * items[item].price)})</p>`).join('');
+    let orderDetailsHTML = '';
+    for (let item in items) {
+        orderDetailsHTML += `<p>${item}s Ordered: ${items[item].quantity} ($${showMoney(items[item].quantity * items[item].price)})</p>`;
+    }
     orderDetailsHTML += `
         <p>Subtotal (Before Discount): $${showMoney(subtotal + discount)}</p>
         <p>Discount: $${showMoney(discount)}</p>
