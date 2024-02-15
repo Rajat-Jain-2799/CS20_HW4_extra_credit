@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe's Hotdog Stand Order Page</title>
+    <title>Joe's Hotdog Stand Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fffbeb;
+        }
+        h1 {
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between; /* Distributes space between children */
+            align-items: center; /* Aligns children vertically in the center */
+            padding: 10px 20px; /* Adds padding inside the header for spacing */
+        }
+        img.logo {
+            max-width: 100px; /* Adjust logo size */
+            height: auto;
+        }
+        h1 {
+            margin: 0; /* Removes default margin to align text properly */
+            font-size: 24px; /* Adjust the size as needed */
+        }
+        #orderDetails {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px; /* Space between header and order details */
+        }
+        /* Additional styling here */
+    </style>
 </head>
 <body>
-    <h1>Welcome to Joe's Hotdog Stand</h1>
+    <div class="header">
+        <h1>Welcome to Joe's Hotdog Stand</h1>
+        <img src="Logo.png" alt="Joe's Hotdog Stand Logo" class="logo">
+    </div>
     <div id="orderDetails"></div>
     <script src="extra.js"></script>
 </body>
