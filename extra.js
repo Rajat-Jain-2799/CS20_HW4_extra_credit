@@ -1,3 +1,13 @@
+/*
+ *  Assignment: Joe’s Hotdogs
+ *  Rajat Jain
+ *  2-12-2024
+ *
+ *  CS 20 Assignment 4
+ *
+ *  Make a functional java scipt for an interactive page for a hotdog stand for extra credit
+ *
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const prices = {
         Hotdog: 4.65,
