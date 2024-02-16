@@ -9,18 +9,20 @@
  *
  */
 document.addEventListener('DOMContentLoaded', function() {
+    //Made it into assortive array
     const prices = {
         Hotdog: 4.65,
         Fries: 3.75,
         Soda: 1.89
     };
     const TAX_RATE = 0.0625;
+    //Made it into assortive array
     let quantities = {};
 
     for (let item in prices) {
         quantities[item] = parseInt(prompt(`How many ${item}s do you want?`), 10) || 0;
     }
-
+    //The showmoney function
     function showMoney(value) {
         let rounded = Math.round(value * 100) / 100;
         let valueStr = rounded.toString();
